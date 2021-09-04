@@ -45,13 +45,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 context.startActivity(intent);
             }
         });
-        if(modelClassArrayList.get(position).getDescription() == null || modelClassArrayList.get(position).getTitle() == null ||
-                modelClassArrayList.get(position).getAuthor() == null ||
-                modelClassArrayList.get(position).getPublishedAt() == null ||
-                modelClassArrayList.get(position).getUrlToImage() == null){
+        
             modelClassArrayList.remove(position);
-        }
-        else {
+
             holder.mTime.setText("Published At - " + modelClassArrayList.get(position).getPublishedAt());
             holder.mAuthor.setText(modelClassArrayList.get(position).getAuthor());
             holder.mContent.setText(modelClassArrayList.get(position).getDescription());
@@ -59,7 +55,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
             Glide.with(context).load(modelClassArrayList.get(position).getUrlToImage()).into(holder.imageView);
 
-        }
+        
     }
 
     @Override
